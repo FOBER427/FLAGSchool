@@ -5,217 +5,306 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Флажки для праздников</title>
     <style>
-        body {
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #333333;
-            background: #ffffff;
-            font: 16px/1.6 Arial, Helvetica, sans-serif;
         }
-        .header {
-            background: #667eea;
-            color: #ffffff;
-            padding: 4rem 2rem;
-            text-align: center;
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
         .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 0 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         .section {
-            margin: 4rem 0;
-            text-align: center;
+            margin: 50px 0;
         }
         .section-title {
-            font-size: 2.5rem;
-            color: #667eea;
-            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 30px;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
-        .item {
-            background: #ffffff;
-            border: 1px solid #eeeeee;
-            padding: 1rem;
-            flex: 1 1 300px;
-            max-width: 400px;
-        }
-        .item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .feature {
-            background: #ffffff;
-            border: 1px solid #eeeeee;
-            padding: 2rem;
-            flex: 1 1 250px;
-            max-width: 300px;
-        }
-        .pricecard {
-            background: #ffffff;
-            padding: 2rem;
-            border: 1px solid #eeeeee;
-            width: 300px;
-            margin: 0 auto;
-        }
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #333333;
-        }
-        .cta {
-            background: #667eea;
-            color: #ffffff;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
             text-align: center;
         }
-        .button {
-            display: inline-block;
-            background: #ffffff;
-            color: #667eea;
-            padding: 1rem 3rem;
-            font-weight: bold;
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .card h3 {
             font-size: 1.2rem;
-            margin: 1rem;
-            text-decoration: none;
-            border-radius: 5px;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .price-card {
+            background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 350px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 10px 0;
+        }
+        .contact-box {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
         }
         .contact-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.5rem;
             display: block;
-            margin: 1rem 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            margin: 15px 0;
+            transition: color 0.2s;
+        }
+        .contact-link:hover {
+            color: var(--primary-dark);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 10px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: #eff6ff;
+        }
+        .desc-box {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .desc-box ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        .desc-box li {
+            margin-bottom: 8px;
         }
         footer {
-            background: #333333;
-            color: #ffffff;
-            padding: 2rem;
+            background: var(--text);
+            color: white;
+            padding: 30px 20px;
             text-align: center;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .price-amount { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
+
     <div class="header">
-        <h1>Флажки для праздников</h1>
-        <p>Яркие гирлянды для любых мероприятий и торжеств</p>
+        <div class="container">
+            <h1>🎉 Флажки для праздников</h1>
+            <p>Яркие гирлянды для любых мероприятий и торжеств</p>
+        </div>
     </div>
 
     <div class="container">
+        
         <div class="section">
             <h2 class="section-title">Наша продукция</h2>
-            <div class="gallery">
-                <div class="item">
-                    <img src="images/flags1.jpg" alt="Гирлянда">
+            <div class="grid-3">
+                <div class="card">
+                    <img src="images/flags1.jpg" alt="Гирлянда из флажков">
+                    <h3>Праздничные гирлянды</h3>
+                    <p>Идеальное решение для украшения залов и улиц</p>
                 </div>
-                <div class="item">
-                    <img src="images/flags2.jpg" alt="Оформление">
+                <div class="card">
+                    <img src="images/flags2.jpg" alt="Оформление мероприятия">
+                    <h3>Оформление событий</h3>
+                    <p>Создаем атмосферу торжества за считанные минуты</p>
                 </div>
-                <div class="item">
-                    <img src="images/flags3.jpg" alt="Флажки">
+                <div class="card">
+                    <img src="images/flags3.jpg" alt="Флажки крупным планом">
+                    <h3>Высокое качество</h3>
+                    <p>Прочные материалы и яркие стойкие цвета</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
             <h2 class="section-title">Материалы</h2>
-            <div class="features">
-                <div class="feature">
-                    <div style="font-size: 3rem;">🧵</div>
+            <div class="grid-4">
+                <div class="card">
+                    <span class="icon">🧵</span>
                     <h3>Ткань</h3>
                     <p>Таффета и полиэстер</p>
                 </div>
-                <div class="feature">
-                    <div style="font-size: 3rem;">🎀</div>
+                <div class="card">
+                    <span class="icon">🎀</span>
                     <h3>Лента</h3>
-                    <p>Киперная лента 20 мм, хлопок</p>
+                    <p>Киперная лента 20 мм, 100% хлопок</p>
                 </div>
-                <div class="feature">
-                    <div style="font-size: 3rem;">🎨</div>
-                    <h3>Цвета</h3>
-                    <p>Стойкая яркая печать</p>
+                <div class="card">
+                    <span class="icon">🎨</span>
+                    <h3>Печать</h3>
+                    <p>Стойкие яркие цвета</p>
                 </div>
-                <div class="feature">
-                    <div style="font-size: 3rem;">📏</div>
-                    <h3>Длина</h3>
-                    <p>Продажа от 1 метра</p>
+                <div class="card">
+                    <span class="icon">📏</span>
+                    <h3>Продажа</h3>
+                    <p>От 1 метра под ваши задачи</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
             <h2 class="section-title">Форма и размеры</h2>
-            <div class="features">
-                <div class="feature">
-                    <div style="font-size: 3rem;">🔺</div>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="icon">🔺</span>
                     <h3>Треугольные</h3>
-                    <p>Классический вариант</p>
+                    <p>Классический и самый популярный вариант</p>
                 </div>
-                <div class="feature">
-                    <div style="font-size: 3rem;">🟩</div>
+                <div class="card">
+                    <span class="icon">🟩</span>
                     <h3>Прямоугольные</h3>
-                    <p>Строгий аккуратный вид</p>
+                    <p>Строгий и аккуратный внешний вид</p>
                 </div>
-                <div class="feature">
-                    <div style="font-size: 3rem;">📐</div>
+                <div class="card">
+                    <span class="icon">📐</span>
                     <h3>Индивидуально</h3>
-                    <p>Размер флажков под ваши задачи</p>
+                    <p>Любой размер флажков по вашему запросу</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Цены</h2>
-            <div class="pricecard">
+            <h2 class="section-title">Стоимость</h2>
+            <div class="price-card">
                 <h3>1 метр гирлянды</h3>
-                <div class="price">200 руб</div>
-                <p>Продажа от 1 метра</p>
+                <div class="price-amount">200 ₽</div>
+                <p>Продажа от 1 метра. Любая необходимая длина.</p>
             </div>
         </div>
 
         <div class="section">
-            <div style="background: #ffffff; border: 1px solid #eeeeee; padding: 2rem; text-align: left; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-                    Наши гирлянды идеально подходят для оформления:
-                </p>
-                <ul style="font-size: 1.1rem; margin-left: 2rem;">
-                    <li>Школьных мероприятий и праздников</li>
-                    <li>Государственных торжеств</li>
-                    <li>Корпоративных событий</li>
-                    <li>Детских праздников</li>
-                    <li>Спортивных соревнований</li>
+            <div class="desc-box">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Идеально подходит для:</h3>
+                <ul>
+                    <li>Школьных мероприятий и выпускных</li>
+                    <li>Государственных и патриотических торжеств</li>
+                    <li>Корпоративных событий и тимбилдингов</li>
+                    <li>Детских праздников и дней рождения</li>
+                    <li>Спортивных соревнований и марафонов</li>
                 </ul>
             </div>
         </div>
 
-        <div class="cta">
-            <h2>Готовы сделать заказ?</h2>
-            <p style="font-size: 1.2rem;">Свяжитесь с нами для оформления заказа</p>
-            
-            <a href="tel:+79670404860" class="contact-link">+7 967 040 48 60</a>
-            <a href="mailto:5071943@gmail.com" class="contact-link">5071943@gmail.com</a>
-            
-            <br>
-            <a href="mailto:5071943@gmail.com" class="button">Написать нам</a>
+        <div class="section">
+            <div class="contact-box">
+                <h2 class="section-title" style="margin-bottom: 10px;">Готовы сделать заказ?</h2>
+                <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 20px;">Свяжитесь с нами любым удобным способом</p>
+                
+                <a href="tel:+79670404860" class="contact-link">📞 +7 967 040 48 60</a>
+                <a href="mailto:5071943@gmail.com" class="contact-link">✉️ 5071943@gmail.com</a>
+                
+                <div style="margin-top: 30px;">
+                    <a href="tel:+79670404860" class="btn">Позвонить</a>
+                    <a href="mailto:5071943@gmail.com" class="btn btn-outline">Написать письмо</a>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <footer>
-        <p>2026 Флажки для праздников. Все права защищены.</p>
+        <p>© 2026 Флажки для праздников. Все права защищены.</p>
     </footer>
+
 </body>
 </html>
