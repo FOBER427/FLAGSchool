@@ -2,236 +2,197 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Флажки для праздников | Продажа гирлянд</title>
+    <title>Флажки для праздников</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            color: #333333;
+            background: #ffffff;
+            font: 16px/1.6 Arial, Helvetica;
         }
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
+            background: #667eea;
+            color: #ffffff;
             padding: 4rem 2rem;
         }
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-        }
         .container {
-            max-width: 1200px;
+            width: 90%;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2rem 0;
         }
         .section {
             margin: 4rem 0;
         }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #667eea;
+        .item {
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            padding: 1rem;
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-        .gallery-item img {
+        .item img {
             width: 100%;
             height: 300px;
-            object-fit: cover;
         }
-        .pricing {
-            background: #f8f9fa;
-            padding: 3rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-        .price-card {
-            display: inline-block;
-            background: white;
+        .pricecard {
+            background: #ffffff;
             padding: 2rem;
-            margin: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            min-width: 250px;
-        }
-        .price-card h3 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            border: 1px solid #eeeeee;
+            width: 250px;
+            margin: 1rem auto;
         }
         .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            font: 2.5rem Arial;
+            color: #333333;
         }
         .feature {
-            text-align: center;
+            background: #ffffff;
+            border: 1px solid #eeeeee;
             padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
         }
         .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
+            background: #667eea;
+            color: #ffffff;
             padding: 4rem 2rem;
-            border-radius: 15px;
             margin: 4rem 0;
         }
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .cta-button {
+        .button {
             display: inline-block;
-            background: white;
+            background: #ffffff;
             color: #667eea;
             padding: 1rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-top: 2rem;
-            transition: transform 0.3s;
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
+            font: bold 1.2rem Arial;
+            margin: 2rem 0 0 0;
         }
         footer {
-            background: #333;
-            color: white;
-            text-align: center;
+            background: #333333;
+            color: #ffffff;
             padding: 2rem;
-        }
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🎉 Флажки для праздников</h1>
-        <p>Яркие гирлянды для любых мероприятий и торжеств</p>
+    <div class="header" align="center">
+        <font size="7" color="#ffffff"><b>Флажки для праздников</b></font>
+        <br><br>
+        <font size="4" color="#ffffff">Яркие гирлянды для любых мероприятий и торжеств</font>
     </div>
 
     <div class="container">
-        <div class="section">
-            <h2 class="section-title">Наша продукция</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="images/flags1.jpg" alt="Гирлянда из флажков">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/flags2.jpg" alt="Праздничное оформление">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/flags3.jpg" alt="Флажки крупным планом">
-                </div>
+        <div class="section" align="center">
+            <font size="6" color="#667eea"><b>Наша продукция</b></font>
+            <br><br>
+            <table width="100%" cellpadding="15" cellspacing="15">
+                <tr>
+                    <td width="33%" class="item" align="center">
+                        <img src="images/flags1.jpg" alt="Гирлянда">
+                    </td>
+                    <td width="33%" class="item" align="center">
+                        <img src="images/flags2.jpg" alt="Оформление">
+                    </td>
+                    <td width="33%" class="item" align="center">
+                        <img src="images/flags3.jpg" alt="Флажки">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section" align="center">
+            <font size="6" color="#667eea"><b>Материалы</b></font>
+            <br><br>
+            <table width="100%" cellpadding="15" cellspacing="15">
+                <tr>
+                    <td width="25%" class="feature" align="center">
+                        <font size="6">🧵</font><br>
+                        <font size="4"><b>Ткань</b></font><br>
+                        Таффета и полиэстер
+                    </td>
+                    <td width="25%" class="feature" align="center">
+                        <font size="6">🎀</font><br>
+                        <font size="4"><b>Лента</b></font><br>
+                        Киперная лента 20 мм, хлопок
+                    </td>
+                    <td width="25%" class="feature" align="center">
+                        <font size="6">🎨</font><br>
+                        <font size="4"><b>Цвета</b></font><br>
+                        Стойкая яркая печать
+                    </td>
+                    <td width="25%" class="feature" align="center">
+                        <font size="6">📏</font><br>
+                        <font size="4"><b>Длина</b></font><br>
+                        Продажа от 1 метра
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section" align="center">
+            <font size="6" color="#667eea"><b>Форма и размеры</b></font>
+            <br><br>
+            <table width="100%" cellpadding="15" cellspacing="15">
+                <tr>
+                    <td width="33%" class="feature" align="center">
+                        <font size="6">🔺</font><br>
+                        <font size="4"><b>Треугольные</b></font><br>
+                        Классический вариант
+                    </td>
+                    <td width="33%" class="feature" align="center">
+                        <font size="6">🟩</font><br>
+                        <font size="4"><b>Прямоугольные</b></font><br>
+                        Строгий аккуратный вид
+                    </td>
+                    <td width="33%" class="feature" align="center">
+                        <font size="6">📐</font><br>
+                        <font size="4"><b>Индивидуально</b></font><br>
+                        Размер флажков под ваши задачи
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section" align="center">
+            <font size="6" color="#667eea"><b>Цены</b></font>
+            <br><br>
+            <div class="pricecard" align="center">
+                <font size="4" color="#667eea"><b>1 метр гирлянды</b></font>
+                <br><br>
+                <div class="price">200 руб</div>
+                <br>
+                Продажа от 1 метра
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Материалы</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🧵</div>
-                    <h3>Ткань</h3>
-                    <p>Используется таффета и полиэстер</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎀</div>
-                    <h3>Лента</h3>
-                    <p>Киперная лента 20 мм, материал изделия хлопок</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Яркие цвета</h3>
-                    <p>Стойкая печать для любых мероприятий</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📏</div>
-                    <h3>Любая длина</h3>
-                    <p>Продажа от 1 метра под ваши задачи</p>
-                </div>
-            </div>
+            <table width="100%" cellpadding="20" cellspacing="0">
+                <tr>
+                    <td bgcolor="#ffffff" style="border: 1px solid #eeeeee;">
+                        <font size="4">
+                        Наши гирлянды идеально подходят для оформления:
+                        </font>
+                        <ul style="font: 1.1rem Arial; margin: 0 0 0 2rem;">
+                            <li>Школьных мероприятий и праздников</li>
+                            <li>Государственных торжеств</li>
+                            <li>Корпоративных событий</li>
+                            <li>Детских праздников</li>
+                            <li>Спортивных соревнований</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Цены</h2>
-            <div class="pricing">
-                <div class="price-card">
-                    <h3>1 метр гирлянды</h3>
-                    <div class="price">200 ₽</div>
-                    <p>Продажа от 1 метра</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Описание</h2>
-            <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-                    Наши гирлянды из треугольных флажков идеально подходят для оформления:
-                </p>
-                <ul style="font-size: 1.1rem; margin-left: 2rem;">
-                    <li>Школьных мероприятий и праздников</li>
-                    <li>Государственных торжеств</li>
-                    <li>Корпоративных событий</li>
-                    <li>Детских праздников</li>
-                    <li>Спортивных соревнований</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="cta">
-            <h2>Готовы сделать заказ?</h2>
-            <p style="font-size: 1.2rem;">Свяжитесь с нами для оформления заказа</p>
-            <a href="mailto:5071943@gmail.com" class="cta-button">Написать нам</a>
+        <div class="cta" align="center">
+            <font size="6"><b>Готовы сделать заказ?</b></font>
+            <br><br>
+            <font size="4">Свяжитесь с нами для оформления заказа</font>
+            <br><br>
+            <font size="5"><b>+7 967 040 48 60</b></font>
+            <br><br>
+            <a href="tel:+79670404860" class="button">Позвонить нам</a>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Флажки для праздников. Все права защищены.</p>
+    <footer align="center">
+        <font size="3">2026 Флажки для праздников. Все права защищены.</font>
     </footer>
 </body>
 </html>
