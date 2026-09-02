@@ -220,14 +220,38 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--primary);
         }
-        .desc-box ul {
-            margin-left: 20px;
-            margin-top: 15px;
+        .uses-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
-        .desc-box li {
-            margin-bottom: 8px;
+        .uses-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .uses-column li {
+            padding: 10px 0 10px 32px;
+            position: relative;
+            color: #475569;
+            font-size: 1rem;
+            border-bottom: 1px dashed #cbd5e1;
+            line-height: 1.5;
+        }
+        .uses-column li:last-child {
+            border-bottom: none;
+        }
+        .uses-column li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
         .video-wrapper {
             width: 100%;
@@ -312,6 +336,10 @@
             .card-img { height: 180px; }
             .card-img-cover { height: 200px; }
             .video-wrapper { height: 200px; }
+            .uses-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -422,14 +450,27 @@
 
         <div class="section">
             <div class="desc-box">
-                <h3 style="color: var(--primary);">Идеально подходит для:</h3>
-                <ul>
-                    <li>Школьных мероприятий и выпускных</li>
-                    <li>Государственных и патриотических торжеств</li>
-                    <li>Корпоративных событий и тимбилдингов</li>
-                    <li>Детских праздников и дней рождения</li>
-                    <li>Спортивных соревнований и марафонов</li>
-                </ul>
+                <h3>Идеально подходит для:</h3>
+                <div class="uses-grid">
+                    <div class="uses-column">
+                        <ul>
+                            <li>Школьных мероприятий и выпускных</li>
+                            <li>Государственных и патриотических торжеств</li>
+                            <li>Корпоративных событий и тимбилдингов</li>
+                            <li>Детских праздников и дней рождения</li>
+                            <li>Спортивных соревнований и марафонов</li>
+                        </ul>
+                    </div>
+                    <div class="uses-column">
+                        <ul>
+                            <li>Ярмарок и торговых выставок</li>
+                            <li>Уличных фестивалей и городских праздников</li>
+                            <li>Открытия магазинов и новых объектов</li>
+                            <li>Концертных площадок и музыкальных фестивалей</li>
+                            <li>Фотозон и праздничного оформления помещений</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -439,7 +480,7 @@
                 <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 20px;">Свяжитесь с нами любым удобным способом</p>
                 
                 <a href="tel:+79670404860" class="contact-link">📞 +7 967 040 48 60</a>
-                <a href="mailto:5071943@gmail.com" class="contact-link">️ 5071943@gmail.com</a>
+                <a href="mailto:5071943@gmail.com" class="contact-link">✉️ 5071943@gmail.com</a>
                 
                 <div style="margin-top: 30px;">
                     <a href="tel:+79670404860" class="btn">Позвонить</a>
