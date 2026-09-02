@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Флажки для праздников</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
             --accent: #f59e0b;
-            --bg: #f8fafc;
+            --bg: #ffffff;
             --text: #1e293b;
-            --card-bg: #ffffff;
+            --card-bg: #f1f5f9;
         }
         * {
             box-sizing: border-box;
@@ -38,6 +39,7 @@
             margin-bottom: 40px;
         }
         .header h1 {
+            font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 10px;
@@ -50,18 +52,20 @@
             margin: 50px 0;
         }
         .section-title {
-            font-size: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
             font-weight: 800;
             text-align: center;
-            color: var(--text);
+            color: #1e293b;
             margin-bottom: 30px;
+            letter-spacing: -0.5px;
         }
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
-        .card {
+        .card, .video-card {
             background: var(--card-bg);
             border-radius: 16px;
             padding: 24px;
@@ -70,7 +74,7 @@
             border: 1px solid #e2e8f0;
             text-align: center;
         }
-        .card:hover {
+        .card:hover, .video-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
         }
@@ -80,7 +84,7 @@
             object-fit: contain;
             border-radius: 12px;
             margin-bottom: 16px;
-            background: #f1f5f9;
+            background: #ffffff;
             padding: 15px;
             transition: transform 0.3s;
             cursor: pointer;
@@ -98,12 +102,15 @@
         .card:hover .card-img-cover {
             transform: scale(1.05);
         }
-        .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+        .card h3, .video-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
             color: var(--primary);
+            letter-spacing: -0.3px;
         }
-        .card p {
+        .card p, .video-card p {
             color: #475569;
             font-size: 0.95rem;
         }
@@ -118,7 +125,7 @@
             position: relative;
             color: #475569;
             font-size: 0.9rem;
-            border-bottom: 1px dashed #e2e8f0;
+            border-bottom: 1px dashed #cbd5e1;
         }
         .card ul li:last-child {
             border-bottom: none;
@@ -132,7 +139,7 @@
         }
         .spec-tag {
             display: inline-block;
-            background: #eff6ff;
+            background: #ffffff;
             color: var(--primary);
             padding: 4px 10px;
             border-radius: 20px;
@@ -151,16 +158,10 @@
             box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
         }
         .price-amount {
+            font-family: 'Montserrat', sans-serif;
             font-size: 3.5rem;
             font-weight: 900;
             margin: 10px 0;
-        }
-        .price-sub {
-            font-size: 1rem;
-            opacity: 0.95;
-            margin-top: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
         }
         .contact-box {
             background: var(--card-bg);
@@ -172,6 +173,7 @@
         }
         .contact-link {
             display: block;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
@@ -189,6 +191,7 @@
             padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
             margin: 10px;
@@ -207,11 +210,17 @@
             background: #eff6ff;
         }
         .desc-box {
-            background: white;
+            background: var(--card-bg);
             border-radius: 16px;
             padding: 30px;
             border-left: 5px solid var(--primary);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .desc-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
         .desc-box ul {
             margin-left: 20px;
@@ -219,14 +228,6 @@
         }
         .desc-box li {
             margin-bottom: 8px;
-        }
-        .video-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            text-align: center;
         }
         .video-wrapper {
             width: 100%;
@@ -414,13 +415,14 @@
             <h2 class="section-title">Стоимость</h2>
             <div class="price-card">
                 <div class="price-amount">197 ₽</div>
+                <p style="font-size: 1.3rem; font-weight: 700; margin: 10px 0;">за 1 метр гирлянды</p>
                 <p>Продажа от 1 метра</p>
             </div>
         </div>
 
         <div class="section">
             <div class="desc-box">
-                <h3 style="color: var(--primary); margin-bottom: 15px;">Идеально подходит для:</h3>
+                <h3 style="color: var(--primary);">Идеально подходит для:</h3>
                 <ul>
                     <li>Школьных мероприятий и выпускных</li>
                     <li>Государственных и патриотических торжеств</li>
@@ -437,7 +439,7 @@
                 <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 20px;">Свяжитесь с нами любым удобным способом</p>
                 
                 <a href="tel:+79670404860" class="contact-link">📞 +7 967 040 48 60</a>
-                <a href="mailto:5071943@gmail.com" class="contact-link">✉️ 5071943@gmail.com</a>
+                <a href="mailto:5071943@gmail.com" class="contact-link">️ 5071943@gmail.com</a>
                 
                 <div style="margin-top: 30px;">
                     <a href="tel:+79670404860" class="btn">Позвонить</a>
