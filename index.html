@@ -76,12 +76,25 @@
         }
         .card-img {
             width: 100%;
-            height: 150px;
+            height: 220px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 16px;
             background: #f1f5f9;
-            padding: 10px;
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+        .card-img-cover {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            transition: transform 0.3s;
+        }
+        .card:hover .card-img,
+        .card:hover .card-img-cover {
+            transform: scale(1.05);
         }
         .card h3 {
             font-size: 1.2rem;
@@ -217,6 +230,8 @@
             .header h1 { font-size: 2rem; }
             .section-title { font-size: 1.6rem; }
             .price-amount { font-size: 2.8rem; }
+            .card-img { height: 180px; }
+            .card-img-cover { height: 200px; }
         }
     </style>
 </head>
@@ -224,7 +239,7 @@
 
     <div class="header">
         <div class="container">
-            <h1>🎉 Флажки для праздников</h1>
+            <h1>Флажки для праздников</h1>
             <p>Яркие гирлянды для любых мероприятий и торжеств</p>
         </div>
     </div>
@@ -235,17 +250,17 @@
             <h2 class="section-title">Наша продукция</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/flags1.jpg" alt="Гирлянда из флажков" class="card-img" style="object-fit: cover;">
+                    <img src="images/flags1.jpg" alt="Гирлянда из флажков" class="card-img-cover">
                     <h3>Праздничные гирлянды</h3>
                     <p>Идеальное решение для украшения залов и улиц</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags2.jpg" alt="Оформление мероприятия" class="card-img" style="object-fit: cover;">
+                    <img src="images/flags2.jpg" alt="Оформление мероприятия" class="card-img-cover">
                     <h3>Оформление событий</h3>
                     <p>Создаем атмосферу торжества за считанные минуты</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags3.jpg" alt="Флажки крупным планом" class="card-img" style="object-fit: cover;">
+                    <img src="images/flags3.jpg" alt="Флажки крупным планом" class="card-img-cover">
                     <h3>Высокое качество</h3>
                     <p>Прочные материалы и яркие стойкие цвета</p>
                 </div>
@@ -256,12 +271,8 @@
             <h2 class="section-title">Материалы</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/Flags13.jpg" alt="Ткань" class="card-img">
+                    <img src="images/flags12.jpg" alt="Ткань" class="card-img">
                     <h3>Ткань</h3>
-                    <div style="margin: 10px 0;">
-                        <span class="spec-tag">Таффета</span>
-                        <span class="spec-tag">Полиэстер</span>
-                    </div>
                     <ul>
                         <li>Цвет: белый</li>
                         <li>Цвет: синий</li>
@@ -270,7 +281,7 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <img src="images/flags12.jpg" alt="Лента" class="card-img">
+                    <img src="images/flags15.jpg" alt="Лента" class="card-img">
                     <h3>Лента киперная</h3>
                     <p style="font-weight: 700; color: var(--primary); margin: 8px 0;">ГОСТ 4514-78</p>
                     <div style="margin: 10px 0;">
@@ -307,7 +318,7 @@
                     <p>Строгий и аккуратный внешний вид</p>
                 </div>
                 <div class="card">
-                    <div style="font-size: 3rem; margin-bottom: 12px;">📐</div>
+                    <img src="images/flags14.jpg" alt="Индивидуальный размер" class="card-img">
                     <h3>Индивидуально</h3>
                     <p>Любой размер флажков по вашему запросу</p>
                 </div>
