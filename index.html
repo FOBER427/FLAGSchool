@@ -61,11 +61,6 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
         .card {
             background: var(--card-bg);
             border-radius: 16px;
@@ -79,22 +74,19 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
         }
-        .card img {
+        .card-img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 8px;
             margin-bottom: 16px;
+            background: #f1f5f9;
+            padding: 10px;
         }
         .card h3 {
             font-size: 1.2rem;
             margin-bottom: 8px;
             color: var(--primary);
-        }
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-            display: block;
         }
         .price-card {
             background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
@@ -199,17 +191,17 @@
             <h2 class="section-title">Наша продукция</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/flags1.jpg" alt="Гирлянда из флажков">
+                    <img src="images/flags1.jpg" alt="Гирлянда из флажков" class="card-img" style="object-fit: cover;">
                     <h3>Праздничные гирлянды</h3>
                     <p>Идеальное решение для украшения залов и улиц</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags2.jpg" alt="Оформление мероприятия">
+                    <img src="images/flags2.jpg" alt="Оформление мероприятия" class="card-img" style="object-fit: cover;">
                     <h3>Оформление событий</h3>
                     <p>Создаем атмосферу торжества за считанные минуты</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags3.jpg" alt="Флажки крупным планом">
+                    <img src="images/flags3.jpg" alt="Флажки крупным планом" class="card-img" style="object-fit: cover;">
                     <h3>Высокое качество</h3>
                     <p>Прочные материалы и яркие стойкие цвета</p>
                 </div>
@@ -218,24 +210,19 @@
 
         <div class="section">
             <h2 class="section-title">Материалы</h2>
-            <div class="grid-4">
+            <div class="grid-3">
                 <div class="card">
-                    <span class="icon">🧵</span>
+                    <img src="images/flags11.jpg" alt="Ткань" class="card-img">
                     <h3>Ткань</h3>
                     <p>Таффета и полиэстер</p>
                 </div>
                 <div class="card">
-                    <span class="icon">🎀</span>
+                    <img src="images/flags7.png" alt="Лента" class="card-img">
                     <h3>Лента</h3>
                     <p>Киперная лента 20 мм, 100% хлопок</p>
                 </div>
                 <div class="card">
-                    <span class="icon">🎨</span>
-                    <h3>Печать</h3>
-                    <p>Стойкие яркие цвета</p>
-                </div>
-                <div class="card">
-                    <span class="icon">📏</span>
+                    <div style="font-size: 3rem; margin-bottom: 12px;">📏</div>
                     <h3>Продажа</h3>
                     <p>От 1 метра под ваши задачи</p>
                 </div>
@@ -246,17 +233,17 @@
             <h2 class="section-title">Форма и размеры</h2>
             <div class="grid-3">
                 <div class="card">
-                    <span class="icon">🔺</span>
+                    <img src="images/flags5.png" alt="Треугольные флажки" class="card-img">
                     <h3>Треугольные</h3>
                     <p>Классический и самый популярный вариант</p>
                 </div>
                 <div class="card">
-                    <span class="icon">🟩</span>
+                    <img src="images/flags6.png" alt="Прямоугольные флажки" class="card-img">
                     <h3>Прямоугольные</h3>
                     <p>Строгий и аккуратный внешний вид</p>
                 </div>
                 <div class="card">
-                    <span class="icon">📐</span>
+                    <div style="font-size: 3rem; margin-bottom: 12px;">📐</div>
                     <h3>Индивидуально</h3>
                     <p>Любой размер флажков по вашему запросу</p>
                 </div>
