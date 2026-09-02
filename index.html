@@ -83,6 +83,7 @@
             background: #f1f5f9;
             padding: 15px;
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .card-img-cover {
             width: 100%;
@@ -91,6 +92,7 @@
             border-radius: 12px;
             margin-bottom: 16px;
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .card:hover .card-img,
         .card:hover .card-img-cover {
@@ -226,6 +228,61 @@
             margin-top: 60px;
             border-radius: 30px 30px 0 0;
         }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .zoom-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
             .section-title { font-size: 1.6rem; }
@@ -250,17 +307,17 @@
             <h2 class="section-title">Наша продукция</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/flags1.jpg" alt="Гирлянда из флажков" class="card-img-cover">
+                    <img src="images/flags1.jpg" alt="Гирлянда из флажков" class="card-img-cover" onclick="openLightbox(this.src)">
                     <h3>Праздничные гирлянды</h3>
                     <p>Идеальное решение для украшения залов и улиц</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags2.jpg" alt="Оформление мероприятия" class="card-img-cover">
+                    <img src="images/flags2.jpg" alt="Оформление мероприятия" class="card-img-cover" onclick="openLightbox(this.src)">
                     <h3>Оформление событий</h3>
                     <p>Создаем атмосферу торжества за считанные минуты</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags3.jpg" alt="Флажки крупным планом" class="card-img-cover">
+                    <img src="images/flags3.jpg" alt="Флажки крупным планом" class="card-img-cover" onclick="openLightbox(this.src)">
                     <h3>Высокое качество</h3>
                     <p>Прочные материалы и яркие стойкие цвета</p>
                 </div>
@@ -271,7 +328,7 @@
             <h2 class="section-title">Материалы</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/flags12.jpg" alt="Ткань" class="card-img">
+                    <img src="images/flags12.jpg" alt="Ткань" class="card-img" onclick="openLightbox(this.src)">
                     <h3>Ткань</h3>
                     <ul>
                         <li>Цвет: белый</li>
@@ -281,7 +338,7 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <img src="images/flags15.jpg" alt="Лента" class="card-img">
+                    <img src="images/flags15.jpg" alt="Лента" class="card-img" onclick="openLightbox(this.src)">
                     <h3>Лента киперная</h3>
                     <p style="font-weight: 700; color: var(--primary); margin: 8px 0;">ГОСТ 4514-78</p>
                     <div style="margin: 10px 0;">
@@ -297,7 +354,7 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <div style="font-size: 3rem; margin-bottom: 12px;">📏</div>
+                    <img src="images/flags17.png" alt="Продажа" class="card-img" onclick="openLightbox(this.src)">
                     <h3>Продажа</h3>
                     <p>От 1 метра под ваши задачи</p>
                 </div>
@@ -308,17 +365,17 @@
             <h2 class="section-title">Форма и размеры</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/flags5.png" alt="Треугольные флажки" class="card-img">
+                    <img src="images/flags5.png" alt="Треугольные флажки" class="card-img" onclick="openLightbox(this.src)">
                     <h3>Треугольные</h3>
                     <p>Классический и самый популярный вариант</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags6.png" alt="Прямоугольные флажки" class="card-img">
+                    <img src="images/flags6.png" alt="Прямоугольные флажки" class="card-img" onclick="openLightbox(this.src)">
                     <h3>Прямоугольные</h3>
                     <p>Строгий и аккуратный внешний вид</p>
                 </div>
                 <div class="card">
-                    <img src="images/flags14.jpg" alt="Индивидуальный размер" class="card-img">
+                    <img src="images/flags16.jpg" alt="Индивидуальный размер" class="card-img" onclick="openLightbox(this.src)">
                     <h3>Индивидуально</h3>
                     <p>Любой размер флажков по вашему запросу</p>
                 </div>
@@ -368,6 +425,29 @@
     <footer>
         <p>© 2026 Флажки для праздников. Все права защищены.</p>
     </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">×</div>
+        <img id="lightbox-img" src="" alt="Увеличенное фото">
+        <div class="zoom-hint">Нажмите в любом месте, чтобы закрыть</div>
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 
 </body>
 </html>
