@@ -88,6 +88,43 @@
             margin-bottom: 8px;
             color: var(--primary);
         }
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+            text-align: left;
+        }
+        .card ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: #475569;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .spec-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 3px;
+        }
         .price-card {
             background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
             color: white;
@@ -102,6 +139,13 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin: 10px 0;
+        }
+        .price-sub {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         .contact-box {
             background: var(--card-bg);
@@ -212,14 +256,34 @@
             <h2 class="section-title">Материалы</h2>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/flags11.jpg" alt="Ткань" class="card-img">
+                    <img src="images/Flags13.jpg" alt="Ткань" class="card-img">
                     <h3>Ткань</h3>
-                    <p>Таффета и полиэстер</p>
+                    <div style="margin: 10px 0;">
+                        <span class="spec-tag">Таффета</span>
+                        <span class="spec-tag">Полиэстер</span>
+                    </div>
+                    <ul>
+                        <li>Цвет: белый</li>
+                        <li>Цвет: синий</li>
+                        <li>Цвет: красный</li>
+                        <li>Состав: таффета, полиэстер</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <img src="images/flags7.png" alt="Лента" class="card-img">
-                    <h3>Лента</h3>
-                    <p>Киперная лента 20 мм, 100% хлопок</p>
+                    <img src="images/flags12.jpg" alt="Лента" class="card-img">
+                    <h3>Лента киперная</h3>
+                    <p style="font-weight: 700; color: var(--primary); margin: 8px 0;">ГОСТ 4514-78</p>
+                    <div style="margin: 10px 0;">
+                        <span class="spec-tag">Толщина 0.38 мм</span>
+                        <span class="spec-tag">Ширина 20 мм</span>
+                    </div>
+                    <ul>
+                        <li>Удобно завязывать</li>
+                        <li>Защищает от переломов и сгибов</li>
+                        <li>Быстро сохнет</li>
+                        <li>Выдерживает большую нагрузку</li>
+                        <li>Качественный хлопок</li>
+                    </ul>
                 </div>
                 <div class="card">
                     <div style="font-size: 3rem; margin-bottom: 12px;">📏</div>
@@ -254,8 +318,9 @@
             <h2 class="section-title">Стоимость</h2>
             <div class="price-card">
                 <h3>1 метр гирлянды</h3>
-                <div class="price-amount">200 ₽</div>
-                <p>Продажа от 1 метра. Любая необходимая длина.</p>
+                <div class="price-amount">197 ₽</div>
+                <p>Продажа от 1 метра</p>
+                <div class="price-sub">ЛЮБАЯ НЕОБХОДИМАЯ ДЛИНА</div>
             </div>
         </div>
 
