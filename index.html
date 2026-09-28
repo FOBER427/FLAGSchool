@@ -2,197 +2,556 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Флажки для праздников</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --bg: #ffffff;
+            --text: #1e293b;
+            --card-bg: #f1f5f9;
+        }
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #333333;
-            background: #ffffff;
-            font: 16px/1.6 Arial, Helvetica;
         }
-        .header {
-            background: #667eea;
-            color: #ffffff;
-            padding: 4rem 2rem;
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
         .container {
-            width: 90%;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 0 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         .section {
-            margin: 4rem 0;
+            margin: 50px 0;
         }
-        .item {
-            background: #ffffff;
-            border: 1px solid #eeeeee;
-            padding: 1rem;
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
         }
-        .item img {
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .card, .video-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .card:hover, .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .card-img {
             width: 100%;
-            height: 300px;
-        }
-        .pricecard {
+            height: 220px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 16px;
             background: #ffffff;
-            padding: 2rem;
-            border: 1px solid #eeeeee;
-            width: 250px;
-            margin: 1rem auto;
+            padding: 15px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
-        .price {
-            font: 2.5rem Arial;
-            color: #333333;
+        .card-img-cover {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
-        .feature {
-            background: #ffffff;
-            border: 1px solid #eeeeee;
-            padding: 2rem;
+        .card:hover .card-img,
+        .card:hover .card-img-cover {
+            transform: scale(1.05);
         }
-        .cta {
-            background: #667eea;
-            color: #ffffff;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
+        .card h3, .video-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary);
+            letter-spacing: -0.3px;
         }
-        .button {
+        .card p, .video-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+            text-align: left;
+        }
+        .card ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: #475569;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .spec-tag {
             display: inline-block;
             background: #ffffff;
-            color: #667eea;
-            padding: 1rem 3rem;
-            font: bold 1.2rem Arial;
-            margin: 2rem 0 0 0;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 3px;
+        }
+        .price-card {
+            background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 380px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+        .price-amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 10px 0;
+        }
+        .price-size {
+            font-size: 1rem;
+            margin-top: 8px;
+            opacity: 0.95;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .contact-box {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .contact-link {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            margin: 15px 0;
+            transition: color 0.2s;
+        }
+        .contact-link:hover {
+            color: var(--primary-dark);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 10px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: #eff6ff;
+        }
+        .desc-box {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .desc-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--primary);
+        }
+        .uses-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .uses-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .uses-column li {
+            padding: 10px 0 10px 32px;
+            position: relative;
+            color: #475569;
+            font-size: 1rem;
+            border-bottom: 1px dashed #cbd5e1;
+            line-height: 1.5;
+        }
+        .uses-column li:last-child {
+            border-bottom: none;
+        }
+        .uses-column li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .video-wrapper {
+            width: 100%;
+            height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            background: #000;
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         footer {
-            background: #333333;
-            color: #ffffff;
-            padding: 2rem;
+            background: var(--text);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .zoom-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .price-amount { font-size: 2.8rem; }
+            .card-img { height: 180px; }
+            .card-img-cover { height: 200px; }
+            .video-wrapper { height: 200px; }
+            .uses-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header" align="center">
-        <font size="7" color="#ffffff"><b>Флажки для праздников</b></font>
-        <br><br>
-        <font size="4" color="#ffffff">Яркие гирлянды для любых мероприятий и торжеств</font>
+
+    <div class="header">
+        <div class="container">
+            <h1>🎉 Флажки для праздников</h1>
+            <p>Яркие гирлянды для любых мероприятий и торжеств</p>
+        </div>
     </div>
 
     <div class="container">
-        <div class="section" align="center">
-            <font size="6" color="#667eea"><b>Наша продукция</b></font>
-            <br><br>
-            <table width="100%" cellpadding="15" cellspacing="15">
-                <tr>
-                    <td width="33%" class="item" align="center">
-                        <img src="images/flags1.jpg" alt="Гирлянда">
-                    </td>
-                    <td width="33%" class="item" align="center">
-                        <img src="images/flags2.jpg" alt="Оформление">
-                    </td>
-                    <td width="33%" class="item" align="center">
-                        <img src="images/flags3.jpg" alt="Флажки">
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section" align="center">
-            <font size="6" color="#667eea"><b>Материалы</b></font>
-            <br><br>
-            <table width="100%" cellpadding="15" cellspacing="15">
-                <tr>
-                    <td width="25%" class="feature" align="center">
-                        <font size="6">🧵</font><br>
-                        <font size="4"><b>Ткань</b></font><br>
-                        Таффета и полиэстер
-                    </td>
-                    <td width="25%" class="feature" align="center">
-                        <font size="6">🎀</font><br>
-                        <font size="4"><b>Лента</b></font><br>
-                        Киперная лента 20 мм, хлопок
-                    </td>
-                    <td width="25%" class="feature" align="center">
-                        <font size="6">🎨</font><br>
-                        <font size="4"><b>Цвета</b></font><br>
-                        Стойкая яркая печать
-                    </td>
-                    <td width="25%" class="feature" align="center">
-                        <font size="6">📏</font><br>
-                        <font size="4"><b>Длина</b></font><br>
-                        Продажа от 1 метра
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section" align="center">
-            <font size="6" color="#667eea"><b>Форма и размеры</b></font>
-            <br><br>
-            <table width="100%" cellpadding="15" cellspacing="15">
-                <tr>
-                    <td width="33%" class="feature" align="center">
-                        <font size="6">🔺</font><br>
-                        <font size="4"><b>Треугольные</b></font><br>
-                        Классический вариант
-                    </td>
-                    <td width="33%" class="feature" align="center">
-                        <font size="6">🟩</font><br>
-                        <font size="4"><b>Прямоугольные</b></font><br>
-                        Строгий аккуратный вид
-                    </td>
-                    <td width="33%" class="feature" align="center">
-                        <font size="6">📐</font><br>
-                        <font size="4"><b>Индивидуально</b></font><br>
-                        Размер флажков под ваши задачи
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section" align="center">
-            <font size="6" color="#667eea"><b>Цены</b></font>
-            <br><br>
-            <div class="pricecard" align="center">
-                <font size="4" color="#667eea"><b>1 метр гирлянды</b></font>
-                <br><br>
-                <div class="price">200 руб</div>
-                <br>
-                Продажа от 1 метра
+        
+        <div class="section">
+            <h2 class="section-title">Наша продукция</h2>
+            <div class="grid-3">
+                <!-- Ряд 1 -->
+                <div class="card">
+                    <img src="images/flags1.jpg" alt="Гирлянда из флажков" class="card-img-cover" onclick="openLightbox(this.src)">
+                    <h3>Праздничные гирлянды</h3>
+                    <p>Идеальное решение для украшения залов и улиц</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/12.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <h3>Оформление событий</h3>
+                    <p>Создаем атмосферу торжества за считанные минуты</p>
+                </div>
+                <div class="card">
+                    <img src="images/flags3.jpg" alt="Флажки крупным планом" class="card-img-cover" onclick="openLightbox(this.src)">
+                    <h3>Высокое качество</h3>
+                    <p>Прочные материалы и яркие стойкие цвета</p>
+                </div>
+                
+                <!-- Ряд 2 (Новые элементы) -->
+                <div class="card">
+                    <img src="images/flags20.jpg" alt="Сочетания с другими гирляндами" class="card-img-cover" onclick="openLightbox(this.src)">
+                    <h3>Сочетания с другими гирляндами</h3>
+                    <p>Гармоничное дополнение к любому декору</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <!-- Рекомендуется использовать формат .mp4 вместо .mov для лучшей совместимости с браузерами -->
+                            <source src="videos/flags22.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <h3>Уличные кофейни</h3>
+                    <p>Создаем уютную атмосферу на открытом воздухе</p>
+                </div>
+                <div class="card">
+                    <img src="images/flags21.jpg" alt="Долговечные флажки" class="card-img-cover" onclick="openLightbox(this.src)">
+                    <h3>Долговечные</h3>
+                    <p>Устойчивы к выцветанию и любым погодным условиям</p>
+                </div>
             </div>
         </div>
 
         <div class="section">
-            <table width="100%" cellpadding="20" cellspacing="0">
-                <tr>
-                    <td bgcolor="#ffffff" style="border: 1px solid #eeeeee;">
-                        <font size="4">
-                        Наши гирлянды идеально подходят для оформления:
-                        </font>
-                        <ul style="font: 1.1rem Arial; margin: 0 0 0 2rem;">
-                            <li>Школьных мероприятий и праздников</li>
-                            <li>Государственных торжеств</li>
-                            <li>Корпоративных событий</li>
-                            <li>Детских праздников</li>
-                            <li>Спортивных соревнований</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <h2 class="section-title">Материалы</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="images/flags12.jpg" alt="Ткань" class="card-img" onclick="openLightbox(this.src)">
+                    <h3>Ткань</h3>
+                    <ul>
+                        <li>Цвет: белый</li>
+                        <li>Цвет: синий</li>
+                        <li>Цвет: красный</li>
+                        <li>Состав: таффета, полиэстер</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="images/flags15.jpg" alt="Лента" class="card-img" onclick="openLightbox(this.src)">
+                    <h3>Лента киперная</h3>
+                    <p style="font-weight: 700; color: var(--primary); margin: 8px 0;">ГОСТ 4514-78</p>
+                    <div style="margin: 10px 0;">
+                        <span class="spec-tag">Толщина 0.38 мм</span>
+                        <span class="spec-tag">Ширина 20 мм</span>
+                    </div>
+                    <ul>
+                        <li>Удобно завязывать</li>
+                        <li>Защищает от переломов и сгибов</li>
+                        <li>Быстро сохнет</li>
+                        <li>Выдерживает большую нагрузку</li>
+                        <li>Качественный хлопок</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="images/flags17.png" alt="Продажа" class="card-img" onclick="openLightbox(this.src)">
+                    <h3>Продажа</h3>
+                    <p>От 1 метра под ваши задачи</p>
+                    <p style="margin-top: 10px; font-weight: 600; color: var(--primary);">Любая необходимая длина</p>
+                </div>
+            </div>
         </div>
 
-        <div class="cta" align="center">
-            <font size="6"><b>Готовы сделать заказ?</b></font>
-            <br><br>
-            <font size="4">Свяжитесь с нами для оформления заказа</font>
-            <br><br>
-            <font size="5"><b>+7 967 040 48 60</b></font>
-            <br><br>
-            <a href="tel:+79670404860" class="button">Позвонить нам</a>
+        <div class="section">
+            <h2 class="section-title">Форма и размеры</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="images/flags5.png" alt="Треугольные флажки" class="card-img" onclick="openLightbox(this.src)">
+                    <h3>Треугольные</h3>
+                    <p>Классический и самый популярный вариант</p>
+                </div>
+                <div class="card">
+                    <img src="images/flags6.png" alt="Прямоугольные флажки" class="card-img" onclick="openLightbox(this.src)">
+                    <h3>Прямоугольные</h3>
+                    <p>Строгий и аккуратный внешний вид</p>
+                </div>
+                <div class="card">
+                    <img src="images/flags16.jpg" alt="Индивидуальный размер" class="card-img" onclick="openLightbox(this.src)">
+                    <h3>Индивидуально</h3>
+                    <p>Любые размер и цвет флажков по вашему запросу</p>
+                </div>
+            </div>
         </div>
+
+        <div class="section">
+            <h2 class="section-title">Стоимость</h2>
+            <div class="price-card">
+                <div class="price-amount">197 ₽</div>
+                <p style="font-size: 1.3rem; font-weight: 700; margin: 10px 0;">за 1 метр гирлянды</p>
+                <div class="price-size">Размер флажка 12 см на 20 см</div>
+                <p style="margin-top: 15px;">Продажа от 1 метра</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="desc-box">
+                <h3>Идеально подходит для:</h3>
+                <div class="uses-grid">
+                    <div class="uses-column">
+                        <ul>
+                            <li>Школьных мероприятий и выпускных</li>
+                            <li>Государственных и патриотических торжеств</li>
+                            <li>Корпоративных событий и тимбилдингов</li>
+                            <li>Детских праздников и дней рождения</li>
+                            <li>Спортивных соревнований и марафонов</li>
+                        </ul>
+                    </div>
+                    <div class="uses-column">
+                        <ul>
+                            <li>Ярмарок и торговых выставок</li>
+                            <li>Уличных фестивалей и городских праздников</li>
+                            <li>Открытия магазинов и новых объектов</li>
+                            <li>Концертных площадок и музыкальных фестивалей</li>
+                            <li>Фотозон и праздничного оформления помещений</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="contact-box">
+                <h2 class="section-title" style="margin-bottom: 10px;">Готовы сделать заказ?</h2>
+                <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 20px;">Свяжитесь с нами любым удобным способом</p>
+                
+                <a href="tel:+79670404860" class="contact-link">📞 +7 967 040 48 60</a>
+                <a href="mailto:5071943@gmail.com" class="contact-link">✉️ 5071943@gmail.com</a>
+                
+                <div style="margin-top: 30px;">
+                    <a href="tel:+79670404860" class="btn">Позвонить</a>
+                    <a href="mailto:5071943@gmail.com" class="btn btn-outline">Написать письмо</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <footer align="center">
-        <font size="3">2026 Флажки для праздников. Все права защищены.</font>
+    <footer>
+        <p>© 2026 Флажки для праздников. Все права защищены.</p>
     </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">×</div>
+        <img id="lightbox-img" src="" alt="Увеличенное фото">
+        <div class="zoom-hint">Нажмите в любом месте, чтобы закрыть</div>
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+
 </body>
 </html>
